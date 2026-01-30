@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kamran Munir | Game Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+  background:#070b14;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ===== PARTICLE BG ===== */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:90px 20px 50px;
+}
+.hero h1{
+  font-size:46px;
+  color:#00eaff;
+  text-shadow:0 0 15px #00eaffaa;
+}
+.hero span{
+  color:#fff;
+  border-right:2px solid #00eaff;
+  padding-right:5px;
+}
+
+.contact{
+  margin-top:15px;
+  opacity:.8;
+}
+.contact a{color:#00eaff;text-decoration:none}
+
+/* ===== FILTER BUTTONS ===== */
+.filters{
+  text-align:center;
+  margin:40px 0;
+}
+.filter-btn{
+  background:#111a2e;
+  border:1px solid #00eaff55;
+  color:#00eaff;
+  padding:8px 16px;
+  margin:5px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:.3s;
+}
+.filter-btn:hover,.active{background:#00eaff;color:#000}
+
+/* ===== GRID ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+  padding:0 40px;
+}
+
+/* ===== CARD ===== */
+.card{
+  background:linear-gradient(145deg,#121b2f,#0d1526);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 0 20px rgba(0,255,255,0.07);
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 30px rgba(0,255,255,0.25);
+}
+.card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+}
+.card-content{
+  padding:18px;
+  text-align:center;
+}
+.store-btn{
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:8px;
+  text-decoration:none;
+  color:white;
+  font-size:13px;
+  background:linear-gradient(90deg,#00eaff,#0077ff);
+  margin-top:8px;
+}
+
+/* ===== SKILLS ===== */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  margin:60px 0 30px;
+}
+.skill{
+  background:#111a2e;
+  padding:10px 18px;
+  border-radius:20px;
+  border:1px solid #00eaff44;
+  font-size:13px;
+}
+
+/* ===== FOOTER ===== */
+footer{text-align:center;margin:50px 0 20px;opacity:.5}
+</style>
+</head>
+
+<body>
+<canvas id="bg"></canvas>
+
+<div class="hero">
+  <h1>Kamran Munir</h1>
+  <h2><span id="typing"></span></h2>
+  <div class="contact">
+    📧 shkamran730@gmail.com |
+    📞 03488226246 |
+    📍 Lahore |
+    <a href="http://linkedin.com/in/kamran-munir-341967325" target="_blank">LinkedIn</a>
+  </div>
+</div>
+
+<div class="skills">
+  <div class="skill">Unity 3D</div>
+  <div class="skill">C#</div>
+  <div class="skill">Mobile Optimization</div>
+  <div class="skill">Game Monetization</div>
+  <div class="skill">Firebase</div>
+  <div class="skill">Publishing</div>
+</div>
+
+<div class="filters">
+  <button class="filter-btn active" onclick="filterGames('all')">All</button>
+  <button class="filter-btn" onclick="filterGames('ios')">iOS</button>
+  <button class="filter-btn" onclick="filterGames('android')">Android</button>
+  <button class="filter-btn" onclick="filterGames('amazon')">Amazon</button>
+</div>
+
+<div class="grid">
+
+<!-- iOS -->
+<div class="card ios"><img src="https://via.placeholder.com/400x200?text=Water+Park"><div class="card-content"><h3>Water Fun Park Manager</h3><a class="store-btn" href="https://apps.apple.com/hu/app/water-fun-park-manager-3d/id6753354884" target="_blank">App Store</a></div></div>
+
+<div class="card ios"><img src="https://via.placeholder.com/400x200?text=FPS+Shooter"><div class="card-content"><h3>FPS Survival Shooter</h3><a class="store-btn" href="https://apps.apple.com/hu/app/fps-fire-survival-shooter-gun/id6749795186" target="_blank">App Store</a></div></div>
+
+<!-- Android -->
+<div class="card android"><img src="https://via.placeholder.com/400x200?text=Puzzle"><div class="card-content"><h3>Tile Triple Puzzle</h3><a class="store-btn" href="https://play.google.com/store/apps/details?id=com.tile.triple.puzzle.match.game" target="_blank">Play Store</a></div></div>
+
+<div class="card android"><img src="https://via.placeholder.com/400x200?text=Thief"><div class="card-content"><h3>Thief Robbery Sneak</h3><a class="store-btn" href="https://play.google.com/store/apps/details?id=com.gc.thief.robbery.stealth.sneak.game" target="_blank">Play Store</a></div></div>
+
+<!-- Amazon -->
+<div class="card amazon"><img src="https://via.placeholder.com/400x200?text=Offroad"><div class="card-content"><h3>Offroad 4x4 Simulator</h3><a class="store-btn" href="https://www.amazon.com/offroad-4x4-driving-simulator-truck/dp/B0FX4GDWXM" target="_blank">Amazon</a></div></div>
+
+</div>
+
+<footer>© 2026 Kamran Munir — Game Developer</footer>
+
+<script>
+/* ===== TYPING EFFECT ===== */
+const words=["Unity Game Developer","Mobile Games Specialist","3D Gameplay Programmer"];
+let i=0,j=0,currentWord="",isDeleting=false;
+function type(){
+  currentWord=words[i];
+  document.getElementById("typing").textContent=currentWord.substring(0,j);
+  if(!isDeleting && j<currentWord.length){j++;}
+  else if(isDeleting && j>0){j--;}
+  else{isDeleting=!isDeleting;i=(i+1)%words.length;}
+  setTimeout(type,isDeleting?50:100);
+}
+type();
+
+/* ===== FILTER SYSTEM ===== */
+function filterGames(type){
+  document.querySelectorAll(".card").forEach(card=>{
+    card.style.display=(type==="all"||card.classList.contains(type))?"block":"none";
+  });
+  document.querySelectorAll(".filter-btn").forEach(btn=>btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+/* ===== PARTICLE BACKGROUND ===== */
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+for(let i=0;i<80;i++){
+  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:Math.random()-.5,vy:Math.random()-.5});
+}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#00eaff";
+  particles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>canvas.width)p.vx*=-1;
+    if(p.y<0||p.y>canvas.height)p.vy*=-1;
+    ctx.fillRect(p.x,p.y,2,2);
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
